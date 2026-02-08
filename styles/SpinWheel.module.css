@@ -1,0 +1,391 @@
+/* styles/SpinWheel.module.css */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f 0%, #2a003f 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.header {
+  background: linear-gradient(135deg, #01579B, #0277BD);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(2, 119, 189, 0.3);
+  border: 1px solid #0277BD;
+}
+
+.headerTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.headerSubtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.balanceInfo {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 15px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(227, 237, 229, 0.5);
+  font-size: 14px;
+  color: #333;
+}
+
+.balanceAmount {
+  font-weight: bold;
+  color: #0277BD;
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.ticketInfo {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 15px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(227, 237, 229, 0.5);
+}
+
+.ticketLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.ticketCount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0277BD;
+  margin-bottom: 5px;
+}
+
+.ticketNote {
+  font-size: 12px;
+  color: #666;
+}
+
+.errorMessage {
+  background: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ef5350;
+  font-size: 14px;
+  text-align: center;
+}
+
+.resultContainer {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: pulse 1.5s infinite;
+}
+
+.resultTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resultMessage {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.resultValue {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.newBalance {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+.wheelContainer {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(227, 237, 229, 0.5);
+  position: relative;
+}
+
+.wheelWrapper {
+  position: relative;
+  margin: 0 auto 30px;
+  width: 250px;
+  height: 250px;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 5px solid #fff;
+  overflow: hidden;
+  transform: rotate(0deg);
+}
+
+.wheelLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  height: 20px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  width: 45%;
+  padding: 2px;
+}
+
+.wheelPointer {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 25px solid #ff3e6d;
+  z-index: 10;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+}
+
+.spinButton {
+  background: linear-gradient(135deg, #0277BD, #01579B);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 180px;
+  box-shadow: 0 4px 12px rgba(2, 119, 189, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(2, 119, 189, 0.4);
+}
+
+.spinButton:disabled {
+  background: linear-gradient(135deg, #D1D5DB, #9CA3AF);
+  color: #4B5563;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+.prizeList {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(227, 237, 229, 0.5);
+}
+
+.prizeListTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.prizes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prizeItem {
+  display: flex;
+  align-items: center;
+  background: rgba(248, 252, 255, 0.9);
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(227, 237, 229, 0.5);
+}
+
+.prizeColor {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.prizeInfo {
+  flex: 1;
+}
+
+.prizeName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.prizeChance {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.prizeValue {
+  font-size: 14px;
+  font-weight: bold;
+  color: #0277BD;
+}
+
+.ticketInfoSection {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(227, 237, 229, 0.5);
+}
+
+.ticketInfoTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.ticketInfoList {
+  padding-left: 20px;
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.ticketInfoList li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.loading {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #0277BD;
+  animation: spin 1s ease-in-out infinite;
+  margin: 0 auto;
+}
+
+.loadingText {
+  text-align: center;
+  color: white;
+  margin-top: 15px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .userInfo {
+    flex-direction: column;
+  }
+  
+  .wheelWrapper {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .wheelLabel {
+    font-size: 9px;
+  }
+  
+  .spinButton {
+    width: 160px;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
