@@ -114,7 +114,7 @@ export default function UploadTestimoni() {
                 setErrorMsg(res?.message || 'Gagal mengunggah.');
             }
         } catch (err) {
-            setErrorMsg('Terjadi kesalahan.');
+            setErrorMsg(err.message || 'Terjadi kesalahan.');
         } finally {
             setIsSubmitting(false);
         }

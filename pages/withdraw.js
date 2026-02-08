@@ -145,7 +145,7 @@ const Withdraw = () => {
         setErrorMsg(data.message);
       }
     } catch (err) {
-      setErrorMsg('Terjadi kesalahan saat memproses penarikan');
+      setErrorMsg(err.message || 'Terjadi kesalahan saat memproses penarikan');
     }
     setLoading(false);
   };

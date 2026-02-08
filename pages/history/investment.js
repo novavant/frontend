@@ -82,7 +82,7 @@ export default function RiwayatDeposit() {
         setError(res.message || 'Gagal memuat riwayat investasi');
       }
     } catch (err) {
-      setError('Terjadi kesalahan. Silakan coba lagi.');
+      setError(err.message || 'Terjadi kesalahan. Silakan coba lagi.');
       setInvestments([]);
       setTotalInvestments(0);
       setTotalPages(1);

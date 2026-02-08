@@ -106,7 +106,7 @@ export default function Transactions() {
         if (!res.success) setError(res.message || 'Gagal memuat riwayat transaksi');
       }
     } catch (err) {
-      setError('Terjadi kesalahan. Silakan coba lagi.');
+      setError(err.message || 'Terjadi kesalahan. Silakan coba lagi.');
       setTransactions([]);
       setFilteredTransactions([]);
       setTotalTransactions(0);

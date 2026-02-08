@@ -220,11 +220,16 @@ export default function UpdateProfile() {
               <input
                 type="text"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  // Only allow letters and spaces
+                  const value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+                  setName(value);
+                }}
                 placeholder="Masukkan nama Anda"
                 required
                 className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+              <p className="text-xs text-slate-500 mt-1">Hanya huruf dan spasi yang diperbolehkan</p>
             </div>
 
             {/* Phone (Read Only) */}

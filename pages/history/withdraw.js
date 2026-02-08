@@ -81,7 +81,7 @@ export default function RiwayatWithdraw() {
         setError(res.message || 'Gagal memuat riwayat penarikan');
       }
     } catch (err) {
-      setError('Terjadi kesalahan. Silakan coba lagi.');
+      setError(err.message || 'Terjadi kesalahan. Silakan coba lagi.');
       setWithdrawals([]);
       setTotalWithdrawals(0);
       setTotalPages(1);
