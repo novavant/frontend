@@ -37,7 +37,7 @@ const Withdraw = () => {
       return false;
     }
 
-    if (hours < 9 || hours > 17) {
+    if (hours < 1 || hours > 17) {
       setIsWithdrawalAvailable(false);
       setWithdrawalMessage('Penarikan hanya dapat dilakukan pada jam kerja');
       return false;
