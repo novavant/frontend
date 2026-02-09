@@ -253,7 +253,7 @@ export default function Profile() {
               <MenuItem icon="mdi:telegram" label="Grup Telegram" desc="Bergabung dengan komunitas" onClick={() => window.open(applicationData.link_group, '_blank')} iconColor="text-blue-400" bgColor="bg-blue-600/20" external />
             )}
             {userData?.level !== 0 && (
-              <MenuItem icon="mdi:forum" label="Forum VIP" desc="Diskusi khusus member VIP" onClick={() => window.open('https://t.me/+fwFbZTLbjdcyM2Y1', '_blank')} iconColor="text-cyan-400" bgColor="bg-cyan-600/20" external />
+              <MenuItem icon="mdi:forum" label="Forum VIP" desc="Diskusi khusus member VIP" onClick={() => window.open('https://t.me/+qR9OtCeRBTdhZjRl', '_blank')} iconColor="text-cyan-400" bgColor="bg-cyan-600/20" external />
             )}
             <MenuItem icon="mdi:help-circle" label="FAQ" desc="Pertanyaan yang sering diajukan" onClick={() => router.push('/faq')} iconColor="text-amber-400" bgColor="bg-amber-600/20" />
           </div>
